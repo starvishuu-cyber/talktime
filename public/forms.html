@@ -1,0 +1,20 @@
+<html lang="en">
+  <head></head>
+  <body>
+    <!-- Netlify Hidden Forms (for backend form handling) -->
+    <form
+      name="appointment"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="appointment" />
+      <input type="hidden" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="text" name="phone" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

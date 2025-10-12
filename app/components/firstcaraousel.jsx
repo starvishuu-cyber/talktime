@@ -14,31 +14,31 @@ import { Volume2 } from 'lucide-react';
 
 const testimonials = [
   {
-    name: "Rohit",
+    name: "Ayush",
     role: "Software Engineer from India",
     description: "Ready for a Job Interview in English",
-    image: "/images/user1.jpg", // Add your images to public/images/
+    image: "/Ayush.JPG", // Add your images to public/images/
     level: "C1"
   },
   {
     name: "Priya",
     role: "MBA Student from Mumbai",
     description: "Cleared IELTS with 8.5 Band Score",
-    image: "/images/user2.jpg",
+    image: "/Priya.JPG",
     level: "C2"
   },
   {
     name: "Arjun",
-    role: "Business Owner from Delhi",
+    role: "Junior Student",
     description: "Now Speaking Confidently in Meetings",
-    image: "/images/user3.jpg",
+    image: "/kid1.JPG",
     level: "B2"
   },
   {
-    name: "Sneha",
+    name: "Piyush",
     role: "College Student from Bangalore",
     description: "Preparing for Study Abroad",
-    image: "/images/user4.jpg",
+    image: "/Piyush.JPG",
     level: "B1"
   }
 ];
@@ -162,7 +162,7 @@ export default function HeroSection() {
                       <div className="text-center text-white">
                         <div className="sm:w-64 sm:h-64 w-32 h-32 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center text-6xl">
                            <img 
-                              src={'https://picsum.photos/200/300'} 
+                              src={currentTestimonial.image} 
                               alt={currentTestimonial.name}
                               className="w-full h-full  rounded-full object-cover"
                             />

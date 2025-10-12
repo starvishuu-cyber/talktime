@@ -7,13 +7,22 @@ import {
   Award, CheckCircle, ChevronDown, Phone, Mail, 
   MapPin, Instagram, Youtube, Linkedin 
 } from 'lucide-react';
+import Image from 'next/image';
 import Firscarousel from './components/firstcaraousel'
+
+function encode(data: Record<string, string>) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 export default function TalkTimeeLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [currentCarousel, setCurrentCarousel] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({ name: "", phone:'',email: "", message: "" });
 
   // Carousel auto-rotate
   const carouselItems = [
@@ -22,6 +31,12 @@ export default function TalkTimeeLanding() {
     "Expert Mentors",
     "Real-world Practice"
   ];
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,12 +55,29 @@ export default function TalkTimeeLanding() {
   };
 
   // Form submission handler
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 5000);
+    setSending(true);
+    
+    try {
+      await fetch("forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "appointment", ...form }),
+      });
+      setFormSubmitted(true);
+      setForm({ name: "", email: "", message: "" ,phone:'' });
+      setSending(false);
+      console.log('formSubmitted')
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      setSending(false);
+      alert("Something went wrong. Please try again.");
+      console.error(err);
+    }
   };
-
   return (
     <div className="bg-white text-text-primary font-sans">
       
@@ -55,13 +87,13 @@ export default function TalkTimeeLanding() {
           <div className="flex justify-between items-center h-16 md:h-20">
             
             {/* Logo */}
-            <div className="flex items-center">
+            <div className="flex itejms-center h-full p-2">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-2xl md:text-3xl font-bold text-accent"
+                className="text-2xl md:text-3xl font-bold h-full text-accent"
               >
-                TalkTimee
+                <img  className='object-fill bg-accent rounded-full h-full w-full' src='/talktimelogo.png' alt={'Talktimee'} />
               </motion.div>
             </div>
 
@@ -656,26 +688,23 @@ export default function TalkTimeeLanding() {
             className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl"
           >
             {!formSubmitted ? (
-              <form onSubmit={handleFormSubmit} className="space-y-6">
+              <form className="space-y-6" name='appointment'
+                netlify-honeypot="bot-field"
+                onSubmit={handleFormSubmit}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold mb-2">Full Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition"
                     placeholder="Enter your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition"
-                    placeholder="your.email@example.com"
                   />
                 </div>
 
@@ -684,6 +713,9 @@ export default function TalkTimeeLanding() {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
+                    value={form.phone}
+                    onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition"
                     placeholder="+91 XXXXX XXXXX"
@@ -691,9 +723,26 @@ export default function TalkTimeeLanding() {
                 </div>
 
                 <div>
+                  <label htmlFor="email" className="block text-sm font-semibold mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    name='email'
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+
+                <div>
                   <label htmlFor="message" className="block text-sm font-semibold mb-2">Message (Optional)</label>
                   <textarea
                     id="message"
+                    name='message'
+                    value={form.message}
+                    onChange={handleChange}
                     rows={4}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none transition resize-none"
                     placeholder="Tell us about your learning goals..."
@@ -702,11 +751,12 @@ export default function TalkTimeeLanding() {
 
                 <motion.button
                   type="submit"
+                  disabled={sending}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-accent text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition"
+                  className="w-full bg-accent text-white px-8 sm:py-4  py-2 rounded-2xl font-bold sm:text-lg shadow-lg hover:shadow-xl transition"
                 >
-                  Book Free Demo Now
+                  {sending?"Submitting...":"Book Free Demo Now"}
                 </motion.button>
               </form>
             ) : (

@@ -37,7 +37,7 @@ const qqcarouselImages: CarouselImage[] = [
   {
     src: '/images/session5.jpg',
     alt: 'Student Success Stories',
-    caption: 'Join 10,000+ Happy Learners'
+    caption: 'Join 1,000+ Happy Learners'
   }
 ];
 

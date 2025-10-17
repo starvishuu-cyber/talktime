@@ -88,7 +88,7 @@ export default function TalkTimeeLanding() {
               <button onClick={() => scrollToSection('home')} className="hover:text-accent transition">Home</button>
               <Link href='/english-speaking-courses' className="block w-full text-left py-2 hover:text-accent transition">Courses</Link>
               <button onClick={() => scrollToSection('features')} className="hover:text-accent transition">Features</button>
-              <button onClick={() => scrollToSection('about')} className="hover:text-accent transition">About</button>
+              <Link href='/about' className="block w-full text-left py-2 hover:text-accent transition">About</Link>
               <button onClick={() => scrollToSection('testimonials')} className="hover:text-accent transition">Testimonials</button>
               <button onClick={() => scrollToSection('faq')} className="hover:text-accent transition">FAQ</button>
               <button onClick={() => scrollToSection('QuicLinks')} className="hover:text-accent transition">Links</button>
@@ -129,7 +129,6 @@ export default function TalkTimeeLanding() {
               <Link href='/english-speaking-courses' className="block w-full text-left py-2 hover:text-accent transition">Courses</Link>
               <button onClick={() => scrollToSection('features')} className="block w-full text-left py-2 hover:text-accent transition">Features</button>
               <Link href='/about' className="block w-full text-left py-2 hover:text-accent transition">About</Link>
-              <Link href='/english-speaking-courses' className="block w-full text-left py-2 hover:text-accent transition">Courses</Link>
               <button onClick={() => scrollToSection('testimonials')} className="block w-full text-left py-2 hover:text-accent transition">Testimonials</button>
               <button onClick={() => scrollToSection('faq')} className="block w-full text-left py-2 hover:text-accent transition">FAQ</button>
               <button onClick={() => scrollToSection('contact')} className="block w-full text-left py-2 hover:text-accent transition">Contact</button>
@@ -337,7 +336,7 @@ export default function TalkTimeeLanding() {
                 <div className="bg-white rounded-2xl p-8 space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold p-1">10k+</span>
+                      <span className="text-white font-bold p-1">1k+</span>
                     </div>
                     <div>
                       <p className="font-semibold">Happy Learners</p>
@@ -635,7 +634,7 @@ export default function TalkTimeeLanding() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2  id='contactready' className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-lg text-text-secondary">Book your free demo class today!</p>
           </motion.div>
 

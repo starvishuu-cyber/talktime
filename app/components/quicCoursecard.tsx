@@ -168,7 +168,7 @@ export default function CoursesPreview() {
               <div className="text-sm opacity-90">Course Options</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold mb-1">5000+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">1000+</div>
               <div className="text-sm opacity-90">Students Trained</div>
             </div>
             <div>

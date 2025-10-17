@@ -68,7 +68,7 @@ export default function AboutUs() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
         >
           <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition">
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">5000+</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">1000+</div>
             <div className="text-sm md:text-base text-secondary">Students Trained</div>
           </div>
           <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition">
@@ -174,7 +174,7 @@ export default function AboutUs() {
             className="mt-8 bg-accent/10 rounded-2xl p-6 text-center"
           >
             <p className="text-lg text-primary">
-              <span className="font-bold text-accent">Proven Results:</span> Over 5,000 students trained successfully with a <span className="font-bold">99% satisfaction rate</span>
+              <span className="font-bold text-accent">Proven Results:</span> Over 1,000 students trained successfully with a <span className="font-bold">99% satisfaction rate</span>
             </p>
           </motion.div>
         </motion.div>
@@ -228,7 +228,7 @@ export default function AboutUs() {
             Start your journey with TalkTime Spoken English — speak fluently, communicate confidently, and present your best self to the world!
           </p>
           <a
-            href='/#contact'
+            href='/#contactready'
             className="bg-white text-accent px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition"
           >
             Start Your Journey Today

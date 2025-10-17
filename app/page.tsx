@@ -634,7 +634,7 @@ export default function TalkTimeeLanding() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2  id='contactready' className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-lg text-text-secondary">Book your free demo class today!</p>
           </motion.div>
 
@@ -708,6 +708,7 @@ export default function TalkTimeeLanding() {
                 </div>
 
                 <motion.button
+                  id='contactready'
                   type="submit"
                   disabled={sending}
                   whileHover={{ scale: 1.02 }}

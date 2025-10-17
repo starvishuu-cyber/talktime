@@ -1,14 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
   Menu, X, Star, MessageSquare, Users, Calendar, 
   Award, CheckCircle, ChevronDown, Phone, Mail, 
   MapPin, Instagram, Youtube, Linkedin 
 } from 'lucide-react';
-import Image from 'next/image';
-import Firscarousel from './components/firstcaraousel'
+import Firstcarousel from './components/firstcaraousel'
+import Gallerycarousel from './components/gallerycarousel'
+import CourseCard from './components/quicCoursecard'
 
 function encode(data: Record<string, string>) {
   return Object.keys(data)
@@ -19,31 +21,15 @@ function encode(data: Record<string, string>) {
 export default function TalkTimeeLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
-  const [currentCarousel, setCurrentCarousel] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ name: "", phone:'',email: "", message: "" });
-
-  // Carousel auto-rotate
-  const carouselItems = [
-    "1:1 Live Classes",
-    "Affordable Plans",
-    "Expert Mentors",
-    "Real-world Practice"
-  ];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCarousel((prev) => (prev + 1) % carouselItems.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {
@@ -100,10 +86,12 @@ export default function TalkTimeeLanding() {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               <button onClick={() => scrollToSection('home')} className="hover:text-accent transition">Home</button>
+              <Link href='/english-speaking-courses' className="block w-full text-left py-2 hover:text-accent transition">Courses</Link>
               <button onClick={() => scrollToSection('features')} className="hover:text-accent transition">Features</button>
               <button onClick={() => scrollToSection('about')} className="hover:text-accent transition">About</button>
               <button onClick={() => scrollToSection('testimonials')} className="hover:text-accent transition">Testimonials</button>
               <button onClick={() => scrollToSection('faq')} className="hover:text-accent transition">FAQ</button>
+              <button onClick={() => scrollToSection('QuicLinks')} className="hover:text-accent transition">Links</button>
               <button onClick={() => scrollToSection('contact')} className="hover:text-accent transition">Contact</button>
             </div>
 
@@ -138,11 +126,14 @@ export default function TalkTimeeLanding() {
           >
             <div className="px-4 py-4 space-y-3">
               <button onClick={() => scrollToSection('home')} className="block w-full text-left py-2 hover:text-accent transition">Home</button>
+              <Link href='/english-speaking-courses' className="block w-full text-left py-2 hover:text-accent transition">Courses</Link>
               <button onClick={() => scrollToSection('features')} className="block w-full text-left py-2 hover:text-accent transition">Features</button>
-              <button onClick={() => scrollToSection('about')} className="block w-full text-left py-2 hover:text-accent transition">About</button>
+              <Link href='/about' className="block w-full text-left py-2 hover:text-accent transition">About</Link>
+              <Link href='/english-speaking-courses' className="block w-full text-left py-2 hover:text-accent transition">Courses</Link>
               <button onClick={() => scrollToSection('testimonials')} className="block w-full text-left py-2 hover:text-accent transition">Testimonials</button>
               <button onClick={() => scrollToSection('faq')} className="block w-full text-left py-2 hover:text-accent transition">FAQ</button>
               <button onClick={() => scrollToSection('contact')} className="block w-full text-left py-2 hover:text-accent transition">Contact</button>
+              <button onClick={() => scrollToSection('QuicLinks')} className="hover:text-accent transition">Quick Link</button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="w-full bg-accent text-white px-6 py-3 rounded-2xl font-semibold shadow-lg"
@@ -154,9 +145,9 @@ export default function TalkTimeeLanding() {
         )}
       </nav>
       {/* ===============caousel========= */}
-       <Firscarousel/>
+       <Firstcarousel/>
       {/* ========== HERO SECTION ========== */}
-      <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-white">
+      <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
@@ -168,11 +159,12 @@ export default function TalkTimeeLanding() {
               className="text-center md:text-left"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Speak English <span className="text-accent">Confidently</span> with TalkTimee
+                Personalized <span className="text-accent">1-on-1</span> speaking sessions.
               </h1>
               <p className="text-lg md:text-xl text-text-secondary mb-8">
-                Join 10,000+ learners improving their communication and fluency.
+                Learn from expert tutors with real conversation practice — anytime, anywhere.
               </p>
+
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -202,7 +194,7 @@ export default function TalkTimeeLanding() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-accent/20 to-purple-200 rounded-3xl p-8 md:p-12 shadow-2xl">
+              <div className="bg-gradient-to-br from-purple-200 via-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 shadow-2xl">
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-center justify-center space-x-4 mb-6">
                     <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
@@ -233,37 +225,12 @@ export default function TalkTimeeLanding() {
           </div>
         </div>
       </section>
-      
-      {/* ========== CAROUSEL / HIGHLIGHTS SECTION ========== */}
-      <section className="py-12 bg-accent">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <motion.h2 
-              key={currentCarousel}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="text-3xl md:text-4xl font-bold text-white"
-            >
-              {carouselItems[currentCarousel]}
-            </motion.h2>
-            <div className="flex justify-center space-x-2 mt-6">
-              {carouselItems.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentCarousel(index)}
-                  className={`w-3 h-3 rounded-full transition ${
-                    index === currentCarousel ? 'bg-white' : 'bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+       
+      <CourseCard/>
+      <Gallerycarousel/>
 
       {/* ========== FEATURES SECTION ========== */}
-      <section id="features" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="features" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -272,7 +239,7 @@ export default function TalkTimeeLanding() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose TalkTimee?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose TalkTime Spoken English?</h2>
             <p className="text-lg text-text-secondary">Everything you need to master English speaking</p>
           </motion.div>
 
@@ -354,7 +321,7 @@ export default function TalkTimeeLanding() {
       </section>
 
       {/* ========== ABOUT SECTION ========== */}
-      <section id="about" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-purple-50">
+      <section id="about" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
@@ -370,7 +337,7 @@ export default function TalkTimeeLanding() {
                 <div className="bg-white rounded-2xl p-8 space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                      <span className="text-white text-2xl font-bold">10k+</span>
+                      <span className="text-white font-bold p-1">10k+</span>
                     </div>
                     <div>
                       <p className="font-semibold">Happy Learners</p>
@@ -379,7 +346,7 @@ export default function TalkTimeeLanding() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                      <span className="text-white text-2xl font-bold">98%</span>
+                      <span className="text-white  font-bold p-1">98%</span>
                     </div>
                     <div>
                       <p className="font-semibold">Success Rate</p>
@@ -388,7 +355,7 @@ export default function TalkTimeeLanding() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                      <span className="text-white text-2xl font-bold">5+</span>
+                      <span className="text-white font-bold p-1">5+</span>
                     </div>
                     <div>
                       <p className="font-semibold">Years Experience</p>
@@ -407,28 +374,20 @@ export default function TalkTimeeLanding() {
               transition={{ duration: 0.6 }}
               className="order-1 md:order-2"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About TalkTimee</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">About TalkTime Spoken English</h2>
               <p className="text-lg text-text-secondary mb-4 leading-relaxed">
                 TalkTimee is India's leading English spoken platform dedicated to helping individuals speak English with confidence. Our mission is to break the language barrier and empower learners with practical communication skills.
               </p>
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
                 With personalized attention, interactive sessions, and real-world practice, we've helped thousands of students, professionals, and entrepreneurs achieve their English speaking goals.
               </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('contact')}
-                className="bg-accent text-white px-8 py-3 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition"
-              >
-                Start Your Journey
-              </motion.button>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ========== TESTIMONIALS SECTION ========== */}
-      <section id="testimonials" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="testimonials" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -457,7 +416,7 @@ export default function TalkTimeeLanding() {
                 ))}
               </div>
               <p className="text-text-secondary mb-6 italic">
-                "TalkTimee transformed my speaking skills! I was hesitant to speak English, but the trainers made me comfortable. Now I confidently speak at my workplace."
+                "TalkTime Spoken English  transformed my speaking skills! I was hesitant to speak English, but the trainers made me comfortable. Now I confidently speak at my workplace."
               </p>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">
@@ -484,7 +443,7 @@ export default function TalkTimeeLanding() {
                 ))}
               </div>
               <p className="text-text-secondary mb-6 italic">
-                "Best investment I made! The classes are interactive, fun, and super effective. I cleared my IELTS exam with a great score thanks to TalkTimee."
+                "Best investment I made! The classes are interactive, fun, and super effective. I cleared my IELTS exam with a great score thanks to TalkTime Spoken English."
               </p>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">
@@ -511,7 +470,7 @@ export default function TalkTimeeLanding() {
                 ))}
               </div>
               <p className="text-text-secondary mb-6 italic">
-                "I was struggling with fluency for years. TalkTimee's personalized approach helped me speak naturally within 3 months. Highly recommended!"
+                "I was struggling with fluency for years. TalkTime English Spoken's personalized approach helped me speak naturally within 3 months. Highly recommended!"
               </p>
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">
@@ -528,7 +487,7 @@ export default function TalkTimeeLanding() {
       </section>
 
       {/* ========== FAQ SECTION ========== */}
-      <section id="faq" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-purple-50">
+      <section id="faq" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -667,7 +626,7 @@ export default function TalkTimeeLanding() {
       </section>
 
       {/* ========== CONTACT / LEAD CAPTURE SECTION ========== */}
-      <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -783,16 +742,30 @@ export default function TalkTimeeLanding() {
           </motion.div>
         </div>
       </section>
+      <section>
+        <div className="w-full h-[450px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.4698720780425!2d77.16622692495723!3d28.645646483486075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d036fc993597b%3A0x7ec86206a8c63711!2sTalkTime%20Spoken%20English%20Institute%20-%20India&#39;s%20No.%201%20Best%20English%2C%20Top%20Public%20Speaking%2C%20Personality%20Development%20Classes%20in%20Delhi!5e0!3m2!1sen!2sin!4v1760730437361!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+      </section>
 
       {/* ========== FOOTER ========== */}
-      <footer className="bg-text-primary text-white py-12 px-4">
+      <footer  id='QuicLinks' className="bg-text-primary text-white py-12 px-4  bg-purple-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             
             {/* Brand */}
             <div>
-              <h3 className="text-2xl font-bold text-accent mb-4">TalkTimee</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-bold text-accent mb-4">TalkTime English Spoken</h3>
+              <p className="text-gray-300">
                 Empowering learners to speak English confidently and fluently.
               </p>
             </div>
@@ -800,10 +773,10 @@ export default function TalkTimeeLanding() {
             {/* Quick Links */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-600">
+              <ul className="space-y-2 text-gray-300">
                 <li><button onClick={() => scrollToSection('home')} className="hover:text-accent transition">Home</button></li>
                 <li><button onClick={() => scrollToSection('features')} className="hover:text-accent transition">Features</button></li>
-                <li><button onClick={() => scrollToSection('about')} className="hover:text-accent transition">About</button></li>
+                <li><a href='/about' className="hover:text-accent transition">About</a></li>
                 <li><button onClick={() => scrollToSection('contact')} className="hover:text-accent transition">Contact</button></li>
               </ul>
             </div>
@@ -811,48 +784,50 @@ export default function TalkTimeeLanding() {
             {/* Legal */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-accent transition">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-accent transition">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-accent transition">Refund Policy</a></li>
+              <ul className="space-y-2 text-gray-300">
+                <li><a href="/terms-and-conditions" className="hover:text-accent transition">Terms of Service</a></li>
+                <li><a href="/terms-and-conditions#8ids" className="hover:text-accent transition">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions#3ids" className="hover:text-accent transition">Refund Policy</a></li>
               </ul>
             </div>
 
             {/* Contact Info */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
-              <ul className="space-y-3 text-gray-600">
+              <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center space-x-2">
                   <Mail size={18} />
-                  <span>info@talktimee.com</span>
+                  <span>Prerna@talktimespokenenglish.com</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Phone size={18} />
-                  <span>+91 98765 43210</span>
+                  <span>+91 9310140456</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <MapPin size={18} />
-                  <span>Mumbai, India</span>
+                  <span>4/17 West Patel Nagar,
+                  Near Patel Nagar Metro Station
+                  Gate no. 2, New Delhi- 110008 </span>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Social Media */}
-          <div className="border-t border-gray-600 pt-8">
+          <div className="border-t border-gray-300 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} TalkTimee. All rights reserved.
+              <p className="text-gray-300 text-sm">
+                © {new Date().getFullYear()} TalkTime Spoken English. All rights reserved.
               </p>
               
               <div className="flex space-x-6">
-                <a href="#" className="text-gray-400 hover:text-accent transition">
+                <a href="#" className="text-gray-300 hover:text-accent transition">
                   <Instagram size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-accent transition">
+                <a href="#" className="text-gray-300 hover:text-accent transition">
                   <Youtube size={24} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-accent transition">
+                <a href="#" className="text-gray-300 hover:text-accent transition">
                   <Linkedin size={24} />
                 </a>
               </div>

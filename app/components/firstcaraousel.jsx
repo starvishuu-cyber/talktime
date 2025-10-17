@@ -17,28 +17,28 @@ const testimonials = [
     name: "Ayush",
     role: "Software Engineer from India",
     description: "Ready for a Job Interview in English",
-    image: "/Ayush.JPG", // Add your images to public/images/
+    image: "images/Ayush.JPG", // Add your images to public/images/
     level: "C1"
   },
   {
     name: "Priya",
     role: "MBA Student from Mumbai",
     description: "Cleared IELTS with 8.5 Band Score",
-    image: "/Priya.JPG",
+    image: "images/Priya.JPG",
     level: "C2"
   },
   {
     name: "Arjun",
     role: "Junior Student",
     description: "Now Speaking Confidently in Meetings",
-    image: "/kid1.JPG",
+    image: "images/kid1.JPG",
     level: "B2"
   },
   {
     name: "Piyush",
     role: "College Student from Bangalore",
     description: "Preparing for Study Abroad",
-    image: "/Piyush.JPG",
+    image: "images/Piyush.JPG",
     level: "B1"
   }
 ];
@@ -86,6 +86,14 @@ export default function HeroSection() {
       }
     }
   };
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768); // md breakpoint
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-20 md:py-32 px-4 sm:px-6 lg:px-8">
@@ -100,17 +108,17 @@ export default function HeroSection() {
             className="text-center lg:text-left z-10"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-primary">
-              AI English Speaking <br />
-              <span className="text-accent">Practice Platform</span>
+              SPEAK WITH <span className="text-accent">CONFIDENCE</span> & UNLOCK YOUR VOICE <br />
             </h1>
             
             <p className="text-lg md:text-xl text-secondary mb-8 max-w-xl mx-auto lg:mx-0">
-              Learn English with AI and become a confident speaker. Perfect for IELTS prep, job interviews, career growth, academic English, and everyday conversations.
+              India's No. 1 English Speaking, Public Speaking, Personality Development  Assisted more than 5000+ People so far with 98%+ Success Rate. 5/5 Google Ratings.
             </p>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={()=>document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
               className="bg-accent text-white px-10 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-accent/50 transition-all duration-300"
             >
               Book Now
@@ -180,7 +188,7 @@ export default function HeroSection() {
               <motion.div
                 variants={floatingVariant}
                 initial="initial"
-                animate="animate"
+                animate={isDesktop && 'animate'}
                 className="absolute -top-4 z-20 left-8 md:left-12"
               >
                 <motion.div
@@ -197,7 +205,7 @@ export default function HeroSection() {
               <motion.div
                 variants={floatingVariant}
                 initial="initial"
-                animate="animate"
+                animate={isDesktop && 'animate'}
                 style={{ animationDelay: '0.5s' }}
                 className="absolute -top-4 right-8 md:right-16"
               >
@@ -215,14 +223,14 @@ export default function HeroSection() {
               <motion.div
                 variants={floatingVariant}
                 initial="initial"
-                animate="animate"
+                animate={isDesktop && 'animate'}
                 style={{ animationDelay: '1s' }}
                 className="absolute top-1/3 -left-6 md:-left-8"
               >
                 <motion.div
                   variants={hoverScaleVariant}
                   initial="rest"
-                  animate={isHovered ? "hover" : "rest"}
+                  animate={isDesktop && ( isHovered ? "hover" : "rest")}
                   className="bg-white p-4 rounded-2xl shadow-xl cursor-pointer"
                 >
                   <Volume2 className="text-accent" size={28} />

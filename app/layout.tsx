@@ -12,9 +12,41 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Site Metadata
 export const metadata: Metadata = {
-  title: "TalkTime Spoken Egglish",
-  description: 'Speak English Confidently with TalkTime...'
+  title: "TalkTime Spoken English - Best English Speaking Course in Delhi",
+  description: "Join TalkTime Spoken English to speak English confidently. Interactive courses, expert trainers, and personality development classes in Delhi.",
+  keywords: "English speaking course, Spoken English Delhi, Public speaking Delhi, Personality development, TalkTime Spoken English",
+  authors: [{ name: "TalkTime Spoken English", url: "https://talktimespokenenglish.com" }],
+  viewport: "width=device-width, initial-scale=1",
+  themeColor: "#6B46C1", // Violet color
+  openGraph: {
+    title: "TalkTime Spoken English - Best English Speaking Course in Delhi",
+    description: "Join TalkTime Spoken English to speak English confidently. Interactive courses, expert trainers, and personality development classes in Delhi.",
+    url: "https://talktimespokenenglish.com",
+    siteName: "TalkTime Spoken English",
+    images: [
+      {
+        url: "/talktimelogo.png",
+        width: 1200,
+        height: 630,
+        alt: "TalkTime Spoken English English Course Banner",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TalkTime Spoken English - Best English Speaking Course in Delhi",
+    description: "Join TalkTime Spoken English to speak English confidently. Interactive courses, expert trainers, and personality development classes in Delhi.",
+    images: ["talktimelogo.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
         {children}
       </body>

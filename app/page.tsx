@@ -6,11 +6,12 @@ import { motion } from 'framer-motion';
 import { 
   Menu, X, Star, MessageSquare, Users, Calendar, 
   Award, CheckCircle, ChevronDown, Phone, Mail, 
-  MapPin, Instagram, Youtube, Linkedin 
+  MapPin, Instagram, Youtube, Linkedin , BookOpen
 } from 'lucide-react';
 import Firstcarousel from './components/firstcaraousel'
 import Gallerycarousel from './components/gallerycarousel'
 import CourseCard from './components/quicCoursecard'
+import Googlereview from './components/googlereview'
 
 function encode(data: Record<string, string>) {
   return Object.keys(data)
@@ -68,18 +69,17 @@ export default function TalkTimeeLanding() {
     <div className="bg-white text-text-primary font-sans">
       
       {/* ========== NAVBAR ========== */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-md z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
+      <nav className="sticky  w-full top-0 bg-white/95 backdrop-blur-sm shadow-md z-50">
+        <div className="flex justify-between items-center h-16 md:h-20">
             
             {/* Logo */}
-            <div className="flex itejms-center h-full p-2">
+            <div className="flex items-center h-full p-2">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="text-2xl md:text-3xl font-bold h-full text-accent"
               >
-                <img  className='object-fill bg-accent rounded-full h-full w-full' src='/talktimelogo.png' alt={'Talktimee'} />
+                <img  className='object-fill rounded-full h-full w-full' src='/talktimelogo.svg' alt={'Talktimee'} />
               </motion.div>
             </div>
 
@@ -114,7 +114,6 @@ export default function TalkTimeeLanding() {
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
-          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -146,7 +145,7 @@ export default function TalkTimeeLanding() {
       {/* ===============caousel========= */}
        <Firstcarousel/>
       {/* ========== HERO SECTION ========== */}
-      <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
+     <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             
@@ -158,13 +157,12 @@ export default function TalkTimeeLanding() {
               className="text-center md:text-left"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Personalized <span className="text-accent">1-on-1</span> speaking sessions.
+                Offline & Online <span className="text-accent">Courses Offered</span>
               </h1>
               <p className="text-lg md:text-xl text-text-secondary mb-8">
-                Learn from expert tutors with real conversation practice — anytime, anywhere.
+                Comprehensive English learning programs with personalized attention, expert guidance, and flexible schedules designed for your success.
               </p>
 
-              
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <motion.button
@@ -173,49 +171,78 @@ export default function TalkTimeeLanding() {
                   onClick={() => scrollToSection('contact')}
                   className="bg-accent text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition"
                 >
-                  Book Free Demo
+                  Book Free Demo Class
                 </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => scrollToSection('about')}
+                <Link href='/english-speaking-courses'
                   className="border-2 border-accent text-accent px-8 py-4 rounded-2xl font-semibold hover:bg-accent hover:text-white transition"
                 >
-                  Learn More
-                </motion.button>
+                  View All Courses
+                </Link>
               </div>
             </motion.div>
 
-            {/* Hero Illustration */}
+            {/* Hero Illustration with Features */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-purple-200 via-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 shadow-2xl">
+              <div className="bg-gradient-to-br from-purple-200 via-blue-50 to-indigo-50 rounded-3xl p-4 md:p-12 shadow-2xl">
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-center justify-center space-x-4 mb-6">
                     <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
-                      <MessageSquare className="text-white" size={32} />
+                      <BookOpen className="text-white" size={32} />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-2xl font-bold text-text-primary">English Made Easy</h3>
-                      <p className="text-text-secondary">Interactive Learning</p>
+                      <h3 className="text-2xl font-bold text-text-primary">Why Choose Us</h3>
+                      <p className="text-text-secondary">Best-in-Class Features</p>
                     </div>
                   </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-accent" size={20} />
-                      <span>Live 1:1 Sessions</span>
+                  <div className="space-y-3 max-h-96 overflow-y-auto">
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Individual Attention in small-sized batches</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-accent" size={20} />
-                      <span>Expert Mentors</span>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Sunday Special Activities with Competitions & Certifications</span>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="text-accent" size={20} />
-                      <span>Flexible Timings</span>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Performance-Based Feedback & Evaluations</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Flexible Timing Options</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Free Study Materials Provided</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Training in Student's Comfortable Language</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Fascinating & Flexible Teaching Methods</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Free Demo Class Available</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Personality Development Program</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Interview Sessions & Personal Interview Practice</span>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                      <span className="text-sm">Grammar & Writing Excellence</span>
                     </div>
                   </div>
                 </div>
@@ -224,6 +251,7 @@ export default function TalkTimeeLanding() {
           </div>
         </div>
       </section>
+
        
       <CourseCard/>
       <Gallerycarousel/>
@@ -336,7 +364,7 @@ export default function TalkTimeeLanding() {
                 <div className="bg-white rounded-2xl p-8 space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold p-1">1k+</span>
+                      <span className="text-white font-bold p-1">5k+</span>
                     </div>
                     <div>
                       <p className="font-semibold">Happy Learners</p>
@@ -375,7 +403,7 @@ export default function TalkTimeeLanding() {
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6">About TalkTime Spoken English</h2>
               <p className="text-lg text-text-secondary mb-4 leading-relaxed">
-                TalkTimee is India's leading English spoken platform dedicated to helping individuals speak English with confidence. Our mission is to break the language barrier and empower learners with practical communication skills.
+                TalkTime Spoken English is India's leading English speaking platform dedicated to helping individuals speak English with confidence. Our mission is to break the language barrier and empower learners with practical communication skills.
               </p>
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
                 With personalized attention, interactive sessions, and real-world practice, we've helped thousands of students, professionals, and entrepreneurs achieve their English speaking goals.
@@ -398,7 +426,6 @@ export default function TalkTimeeLanding() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Students Say</h2>
             <p className="text-lg text-text-secondary">Real stories from real learners</p>
           </motion.div>
-
           <div className="grid md:grid-cols-3 gap-8">
             
             {/* Testimonial 1 */}
@@ -482,6 +509,7 @@ export default function TalkTimeeLanding() {
               </div>
             </motion.div>
           </div>
+          <Googlereview/>
         </div>
       </section>
 
@@ -543,7 +571,7 @@ export default function TalkTimeeLanding() {
                 onClick={() => setActiveAccordion(activeAccordion === 2 ? null : 2)}
                 className="w-full flex justify-between items-center p-6 text-left hover:bg-purple-50 transition"
               >
-                <span className="font-semibold text-lg">Are classes online?</span>
+                <span className="font-semibold text-lg">Are classes online / offline?</span>
                 <ChevronDown 
                   className={`transition-transform ${activeAccordion === 2 ? 'rotate-180' : ''}`}
                   size={24}
@@ -556,7 +584,7 @@ export default function TalkTimeeLanding() {
                   exit={{ height: 0, opacity: 0 }}
                   className="px-6 pb-6 text-text-secondary"
                 >
-                  Yes! All our classes are conducted online via Zoom or Google Meet. Learn from the comfort of your home at your preferred time.
+                  Yes! All our classes are conducted online via Zoom or Google Meet as well as Offline in Delhi. Learn from the comfort of your home at your preferred time.
                 </motion.div>
               )}
             </motion.div>

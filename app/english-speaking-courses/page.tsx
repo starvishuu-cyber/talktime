@@ -106,7 +106,7 @@ export default function CoursesPage() {
       name: "Intensive Course",
       duration: "3 months",
       schedule: "2 hours, 5 days a week",
-      features: ["Intensive Training", "Weekday Classes"],
+      features: ["Intensive Training", "Regular Classes"],
       price: 14000,
       emi: "₹8,500 × 2",
       popular: true
@@ -609,7 +609,7 @@ export default function CoursesPage() {
                   <CheckCircle className="text-white" size={32} />
                 </div>
                 <h3 className="font-bold text-primary mb-2">Secure Payment</h3>
-                <p className="text-secondary text-sm">All transactions are 100% safe and secure</p>
+                <p className="text-secondary text-sm">All payment type are accepted and  transactions are 100% safe and secure</p>
               </div>
             </div>
 

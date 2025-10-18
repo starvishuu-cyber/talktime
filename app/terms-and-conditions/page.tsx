@@ -23,7 +23,7 @@ export default function TermsAndConditions() {
       title: "Fees & Refunds",
       points: [
         "Course fees must be paid on time to secure your seat.",
-        "Refunds are provided only if the course is canceled or if withdrawal is made within the specified period."
+        "Refunds are provided only if the course is cancelled or if withdrawal is made within the specified period."
       ]
     },
     {

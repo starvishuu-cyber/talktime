@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from "next/image";
-import { loadImages } from "../utils/getAllimages";
 
 
 interface CarouselImage {
@@ -11,35 +10,6 @@ interface CarouselImage {
   alt: string;
   caption?: string;
 }
-
-// Add your actual images here
-const qqcarouselImages: CarouselImage[] = [
-  {
-    src: '/images/session1.jpg',
-    alt: 'Interactive English Learning Session',
-    caption: 'Live Interactive Classes'
-  },
-  {
-    src: '/images/session2.jpg',
-    alt: 'One-on-One Mentoring',
-    caption: 'Personal Attention from Expert Trainers'
-  },
-  {
-    src: '/images/session3.jpg',
-    alt: 'Group Discussion Session',
-    caption: 'Real-world Practice Sessions'
-  },
-  {
-    src: '/images/session4.jpg',
-    alt: 'Online Learning Environment',
-    caption: 'Flexible Schedule & Comfortable Learning'
-  },
-  {
-    src: '/images/session5.jpg',
-    alt: 'Student Success Stories',
-    caption: 'Join 1,000+ Happy Learners'
-  }
-];
 
 export default function ImageCarousel() {
   const [carouselImages  , setCarouseImages]=useState<CarouselImage[]>([])
@@ -76,13 +46,18 @@ export default function ImageCarousel() {
   useEffect(()=>{
     let interval: ReturnType<typeof setInterval>;
     async function getAllimages(){
-        const allImg= await loadImages()
-        setCarouseImages(allImg)
-         interval = setInterval(() => {
+        try {
+        const res = await fetch('/api/getAllimages');
+        const allImg = await res.json();
+        setCarouseImages(allImg);
+
+        interval = setInterval(() => {
         setDirection(1);
         setCurrentIndex((prev) => (prev + 1) >= allImg.length? 0:(prev + 1));
         }, 4000);
-
+      } catch (err) {
+        console.error('Error fetching images:', err);
+      }
     }
     getAllimages()
      return () => clearInterval(interval);
@@ -112,7 +87,7 @@ if(carouselImages.length>0)
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-8">
               <div className="bg-accent/10 rounded-2xl p-4 text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">10k+</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">5k+</div>
                 <div className="text-sm text-secondary">Students</div>
               </div>
               <div className="bg-accent/10 rounded-2xl p-4 text-center">

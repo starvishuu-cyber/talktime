@@ -21,7 +21,7 @@ export default function CoursesPreview() {
       duration: "3 months",
       schedule: "5 days/week",
       price: 14000,
-      features: ["Quick Results", "Weekday Classes"],
+      features: ["Quick Results", "Regular Classes"],
       badge: "Best Seller"
     },
     {
@@ -29,7 +29,7 @@ export default function CoursesPreview() {
       duration: "3 months",
       schedule: "6 days/week",
       price: 20000,
-      features: ["Premium Support", "Sunday Special"],
+      features: ["Personality Development Interview session","Premium Support", "Sunday Special"],
       badge: "Recommended"
     }
   ];
@@ -169,11 +169,11 @@ export default function CoursesPreview() {
               <div className="text-sm opacity-90">Course Options</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold mb-1">1000+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">5000+</div>
               <div className="text-sm opacity-90">Students Trained</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold mb-1">99%</div>
+              <div className="text-3xl md:text-4xl font-bold mb-1">98%</div>
               <div className="text-sm opacity-90">Satisfaction Rate</div>
             </div>
             <div>

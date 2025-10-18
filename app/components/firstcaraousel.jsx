@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     name: "Priya",
-    role: "MBA Student from Mumbai",
+    role: "MBA Student from Delhi",
     description: "Cleared IELTS with 8.5 Band Score",
     image: "images/Priya.JPG",
     level: "C2"
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     name: "Piyush",
-    role: "College Student from Bangalore",
+    role: "College Student from Delhi",
     description: "Preparing for Study Abroad",
     image: "images/Piyush.JPG",
     level: "B1"
@@ -96,7 +96,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
@@ -112,7 +112,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-lg md:text-xl text-secondary mb-8 max-w-xl mx-auto lg:mx-0">
-              India's No. 1 English Speaking, Public Speaking, Personality Development  Assisted more than 5000+ People so far with 98%+ Success Rate. 5/5 Google Ratings.
+              India's No. 1 English Speaking, Public Speaking, Personality Development Institute. Assisted more than 5000+ People so far with 98%+ Success Rate. 5/5 Google Ratings.
             </p>
 
             <motion.button

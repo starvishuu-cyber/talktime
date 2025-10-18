@@ -68,11 +68,11 @@ export default function AboutUs() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
         >
           <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition">
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">1000+</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">5000+</div>
             <div className="text-sm md:text-base text-secondary">Students Trained</div>
           </div>
           <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition">
-            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">99%</div>
+            <div className="text-4xl md:text-5xl font-bold text-accent mb-2">98%</div>
             <div className="text-sm md:text-base text-secondary">Satisfaction Rate</div>
           </div>
           <div className="bg-white rounded-2xl p-6 shadow-lg text-center hover:shadow-xl transition">
@@ -219,7 +219,7 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-accent to-purple-600 rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl"
+          className="bg-gradient-to-r from-accent to-purple-600 rounded-3xl p-4 pb-8 md:p-12 text-center text-white shadow-2xl"
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Step into a world where English learning meets personality transformation
@@ -229,7 +229,7 @@ export default function AboutUs() {
           </p>
           <a
             href='/#contactready'
-            className="bg-white text-accent px-10 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition"
+            className="bg-white text-wrap w-full text-accent px-10 py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition"
           >
             Start Your Journey Today
           </a>

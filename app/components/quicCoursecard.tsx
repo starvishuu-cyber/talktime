@@ -39,11 +39,12 @@ export default function CoursesPreview() {
   };
 
   const handleEnrollClick = (courseName: string, price: number) => {
-    // Add your enrollment logic here
     console.log(`Enrolling in: ${courseName}, Price: ₹${price}`);
-    
+    const message = `Hi! I want to enroll in ${courseName} (${price})`;
+    const whatsappUrl = `https://wa.me/919310140456?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
     // Example: Navigate to courses page or open modal
-    router.push('/courses');
+    // router.push('/');
   };
 
   return (

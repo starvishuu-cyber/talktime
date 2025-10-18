@@ -15,11 +15,13 @@
   --color-secondary: #333333;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
+    :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
 }
 
 body {

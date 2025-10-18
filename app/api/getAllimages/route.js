@@ -2,9 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+// import type { NextRequest } from "next/server";
 
-export function GET(req: NextRequest , res: typeof NextResponse) {
+export function GET(req, res) {
   try {
     const dir = path.join(process.cwd(), "public/images");
   const files = fs.readdirSync(dir);

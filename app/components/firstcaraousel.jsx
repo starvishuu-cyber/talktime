@@ -108,7 +108,7 @@ export default function HeroSection() {
             className="text-center lg:text-left z-10"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-primary">
-              SPEAK WITH <span className="text-accent">CONFIDENCE</span> & UNLOCK YOUR VOICE <br />
+              SPEAK WITH <span className='text-accent'>CONFIDENCE</span> CONNECT WITH THE WORLD<br />
             </h1>
             
             <p className="text-lg md:text-xl text-secondary mb-8 max-w-xl mx-auto lg:mx-0">

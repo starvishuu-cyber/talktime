@@ -79,7 +79,7 @@ export default function TalkTimeeLanding() {
                 animate={{ opacity: 1, x: 0 }}
                 className="text-2xl md:text-3xl font-bold h-full text-accent"
               >
-                <img  className='object-fill rounded-full h-full w-full' src='/talktimelogo.svg' alt={'Talktimee'} />
+                <img  className='object-fill h-full w-full' src='/talktimelogo.svg' alt={'Talktimee'} />
               </motion.div>
             </div>
 
@@ -770,6 +770,7 @@ export default function TalkTimeeLanding() {
           </motion.div>
         </div>
       </section>
+      {/* ================maps================= */}
       <section>
         <div className="w-full h-[450px]">
           <iframe
@@ -832,7 +833,7 @@ export default function TalkTimeeLanding() {
                   <span>+91 9310140456</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <MapPin size={18} />
+                  <MapPin size={40} />
                   <span>4/17 West Patel Nagar,
                   Near Patel Nagar Metro Station
                   Gate no. 2, New Delhi- 110008 </span>
@@ -842,7 +843,7 @@ export default function TalkTimeeLanding() {
           </div>
 
           {/* Social Media */}
-          <div className="border-t border-gray-300 pt-8">
+          {/* <div className="border-t border-gray-300 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-300 text-sm">
                 © {new Date().getFullYear()} TalkTime Spoken English. All rights reserved.
@@ -860,7 +861,7 @@ export default function TalkTimeeLanding() {
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </footer>
     </div>

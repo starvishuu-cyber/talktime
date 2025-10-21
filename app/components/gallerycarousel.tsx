@@ -148,11 +148,11 @@ if(carouselImages.length>0)
                 />
                   
                   {/* Optional Caption Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                     <p className="text-white text-lg font-semibold">
                       {carouselImages[currentIndex]?.caption}
                     </p>
-                  </div>
+                  </div> */}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -175,7 +175,7 @@ if(carouselImages.length>0)
           </motion.div>
         </div>
         {/* Thumbnail Preview (Optional - Desktop Only) */}
-            <div className="hidden md:flex  justify-between space-x-3 mt-6 overflow-x-auto pb-2 px-1">
+            {/* <div className="hidden md:flex  justify-between space-x-3 mt-6 overflow-x-auto pb-2 px-1">
               {carouselImages.map((image, index) => (
                 <button
                   key={index}
@@ -197,7 +197,7 @@ if(carouselImages.length>0)
 
                 </button>
               ))}
-            </div>
+            </div> */}
       </div>
     </section>
   );

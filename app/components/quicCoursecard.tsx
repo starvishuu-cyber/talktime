@@ -29,7 +29,7 @@ export default function CoursesPreview() {
       duration: "3 months",
       schedule: "6 days/week",
       price: 20000,
-      features: ["Personality Development Interview session","Premium Support", "Sunday Special"],
+      features: ["Personality Development", "Interview session","Premium Support", "Sunday Special"],
       badge: "Recommended"
     }
   ];

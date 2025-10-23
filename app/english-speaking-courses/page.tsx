@@ -609,7 +609,7 @@ export default function CoursesPage() {
                   <CheckCircle className="text-white" size={32} />
                 </div>
                 <h3 className="font-bold text-primary mb-2">Secure Payment</h3>
-                <p className="text-secondary text-sm">All payment type are accepted and  transactions are 100% safe and secure</p>
+                <p className="text-secondary text-sm">All payment types are accepted and  transactions are 100% safe and secure</p>
               </div>
             </div>
 

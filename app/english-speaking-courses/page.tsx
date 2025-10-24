@@ -145,7 +145,7 @@ export default function CoursesPage() {
       name: "Premium Course",
       duration: "3 months",
       schedule: "2 hours, 6 days a week",
-      features: ["Sunday Special Activities", "6 Days Training", "Comprehensive Program"],
+      features: ["Sunday Special Activities", "6 Days Training", "Comprehensive Program""Membership Pause Days"],
       price: 20000,
       emi: "₹11,500 × 2",
       badge: "Most Popular"
@@ -207,7 +207,7 @@ export default function CoursesPage() {
         name: "Lifetime Membership - Intensive",
         duration: "3 months",
         schedule: "2 hours, 6 days a week",
-        features: ["Sunday Special Activities", "Lifetime Access", "Premium Support"],
+        features: ["Sunday Special Activities", "Lifetime Access", "Premium Support" "Membership Pause Days"],
         price: 28000,
         emi: "₹15,500 × 2",
         badge: "Premium"
@@ -216,7 +216,7 @@ export default function CoursesPage() {
         name: "Lifetime Membership - Weekend",
         duration: "6 months",
         schedule: "2 hours, Sat & Sunday",
-        features: ["Sunday Special Activities", "Basic + Advanced", "Lifetime Access"],
+        features: ["Sunday Special Activities", "Basic + Advanced", "Lifetime Access" "Membership Pause Days"],
         price: 18000,
         emi: "₹10,500 × 2",
         badge: "Value Pack"

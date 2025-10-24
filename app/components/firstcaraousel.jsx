@@ -30,7 +30,7 @@ const testimonials = [
   {
     name: "Arjun",
     role: "Junior Student",
-    description: "Now Speaking Confidently in Meetings",
+    description: "Now Speaking Confidently in School",
     image: "images/kid1.JPG",
     level: "B2"
   },

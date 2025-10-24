@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "TalkTime Spoken English - Best English Speaking Course in Delhi",
   description: "Join TalkTime Spoken English to speak English confidently. Interactive courses, expert trainers, and personality development classes in Delhi.",
-  keywords: "English speaking course, Spoken English Delhi, Public speaking Delhi, Personality development, TalkTime Spoken English",
+  keywords: "English speaking course, Spoken English Delhi, Public speaking Delhi, Personality development, TalkTime Spoken English, talktime", 
   authors: [{ name: "TalkTime Spoken English", url: "https://talktimespokenenglish.com" }],
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#6B46C1", // Violet color

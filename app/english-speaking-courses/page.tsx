@@ -107,8 +107,8 @@ export default function CoursesPage() {
       duration: "3 months",
       schedule: "2 hours, 5 days a week",
       features: ["Intensive Training", "Regular Classes"],
-      price: 14000,
-      emi: "₹8,500 × 2",
+      price: 16000,
+      emi: "₹9,500 × 2",
       popular: true
     },
     {
@@ -116,8 +116,8 @@ export default function CoursesPage() {
       duration: "6 months",
       schedule: "1 hour, 5 days a week",
       features: ["Flexible Timing", "Extended Duration"],
-      price: 14000,
-      emi: "₹8,500 × 2",
+      price: 16000,
+      emi: "₹9,500 × 2",
       popular: false
     },
     {
@@ -125,12 +125,12 @@ export default function CoursesPage() {
       duration: "45 Days",
       schedule: "2 hours, 5 days a week",
       features: ["Quick Learning", "Intensive Course"],
-      price: 11000,
+      price: 12000,
       emi: "₹7,500 × 2",
       popular: false
     },
     {
-      name: "Daily Course",
+      name: "Grammar Course",
       duration: "2 months",
       schedule: "1 hour, 6 days a week",
       features: ["6 Days Learning", "Short Duration"],
@@ -146,8 +146,8 @@ export default function CoursesPage() {
       duration: "3 months",
       schedule: "2 hours, 6 days a week",
       features: ["Sunday Special Activities", "6 Days Training", "Comprehensive Program","Membership Pause Days"],
-      price: 20000,
-      emi: "₹11,500 × 2",
+      price: 22000,
+      emi: "₹12,500 × 2",
       badge: "Most Popular"
     },
     {
@@ -160,12 +160,12 @@ export default function CoursesPage() {
       badge: "Best Value"
     },
     {
-      name: "Advanced Training",
+      name: "Online Training",
       duration: "3 months",
-      schedule: "1 hour, 6 days a week",
-      features: ["Sunday Special Activities", "Extended Learning", "Daily Classes"],
-      price: 14000,
-      emi: "₹8,500 × 2",
+      schedule: "1 hour, 6 days a week,3 Month",
+      features: ["Sunday Special Activities", "Extended Learning", "Daily Classes" "Individual Classes"],
+      price: 22000,
+      emi: "₹12,500 × 2",
       badge: "Recommended"
     }
   ];

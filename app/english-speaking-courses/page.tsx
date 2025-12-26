@@ -208,8 +208,8 @@ export default function CoursesPage() {
         duration: "3 months",
         schedule: "2 hours, 6 days a week",
         features: ["Sunday Special Activities", "Lifetime Access", "Premium Support","Membership Pause Days"],
-        price: 28000,
-        emi: "₹15,500 × 2",
+        price: 30000,
+        emi: "₹17,500 × 2",
         badge: "Premium"
       },
       {

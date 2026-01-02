@@ -20,7 +20,7 @@ export default function CoursesPreview() {
       name: "Intensive Course",
       duration: "3 months",
       schedule: "5 days/week",
-      price: 14000,
+      price: 16000,
       features: ["Quick Results", "Regular Classes"],
       badge: "Best Seller"
     },
@@ -28,7 +28,7 @@ export default function CoursesPreview() {
       name: "Premium Course",
       duration: "3 months",
       schedule: "6 days/week",
-      price: 20000,
+      price: 22000,
       features: ["Personality Development", "Interview session","Premium Support", "Sunday Special"],
       badge: "Recommended"
     }

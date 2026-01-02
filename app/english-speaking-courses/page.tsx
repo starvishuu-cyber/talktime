@@ -163,7 +163,7 @@ export default function CoursesPage() {
       name: "Online Training",
       duration: "3 months",
       schedule: "1 hour, 6 days a week,3 Month",
-      features: ["Sunday Special Activities", "Extended Learning", "Daily Classes" "Individual Classes"],
+      features: ["Sunday Special Activities", "Extended Learning", "Daily Classes", "Individual Classes"],
       price: 22000,
       emi: "₹12,500 × 2",
       badge: "Recommended"

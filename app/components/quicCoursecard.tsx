@@ -9,12 +9,12 @@ export default function CoursesPreview() {
 
   const featuredCourses = [
     {
-      name: "Weekend Course",
-      duration: "6 months",
-      schedule: "Sat & Sunday",
-      price: 8000,
-      features: ["Weekend Classes", "Sunday Activities"],
-      badge: "Popular"
+      name: "45 Days",
+      duration: "45 Days",
+      schedule: "Mon to Sat",
+      price: 12000,
+      features: ["Regular Courses", "Sunday Activities"],
+      badge: "Best Seller"
     },
     {
       name: "Intensive Course",
